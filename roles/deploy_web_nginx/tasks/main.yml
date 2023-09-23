@@ -1,0 +1,34 @@
+---
+# tasks file for deploy_web_nginx
+
+- block:    # ======DEBIAN block======
+
+    - name: Install Nginx WebServer via apt
+      apt:
+        name: nginx
+        state: latest
+        update_cache: true
+      notify: Clear folder
+
+    - name: Pushing files
+      copy:
+        src: html
+        dest: "{{ destination }}"
+        mode: 0644
+      notify: Restart Nginx
+    
+    - name: Generate file
+      template:
+        src: generated.j2
+        dest: "{{ destination }}/html/generated.html"
+        mode: 0555
+      notify: Restart Nginx
+
+    - name: Starting Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+  when: ansible_os_family == "Debian"
+  

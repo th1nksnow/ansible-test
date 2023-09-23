@@ -1,0 +1,13 @@
+---
+# handlers file for deploy_web_nginx
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
+
+- name: Clear folder
+  file:
+    path: /var/www/html
+    state: absent
+      

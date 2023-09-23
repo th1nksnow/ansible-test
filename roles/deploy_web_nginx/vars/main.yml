@@ -1,0 +1,6 @@
+---
+# vars file for deploy_web_nginx
+
+destination: /var/www/
+
+
