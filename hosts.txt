@@ -1,0 +1,13 @@
+
+[staging_servers]
+
+slave1  ansible_host=slave1  ansible_user=stan
+slave2  ansible_host=slave2  ansible_user=kyle
+
+[prod_servers]
+
+[all_named_servers:children]
+
+staging_servers
+prod_servers
+

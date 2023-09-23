@@ -1,0 +1,43 @@
+
+---
+
+- name: Variables lesson playbook
+  hosts: staging_servers
+  become: true
+
+
+  vars:
+    message1: "Hello"
+    message2: "World"
+    secret: value
+
+
+  tasks:
+
+  - name: Print secret var
+    debug:
+      var: secret
+
+  - debug:
+      msg: "Secret's value is: {{ secret }}"
+
+  - set_fact:
+      full_message: "{{ message1  }} {{ message2 }}"
+
+  - debug:
+      var: full_message
+
+  - debug:
+      var: ansible_os_family
+
+  - shell: uptime
+    register: uptime_res
+
+  - debug:
+      var: uptime_res
+
+  - debug:
+      var: uptime_res.stdout
+
+...
+

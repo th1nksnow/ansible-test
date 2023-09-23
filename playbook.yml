@@ -1,0 +1,53 @@
+
+---
+
+- name: Install Nginx Web Server and Upload WebPage
+  hosts: slave2
+  become: true
+
+
+  vars:
+    source_dir: /home/th1nksnow/ansible-test/files/html
+    destination: /var/www/
+
+
+  tasks:
+
+  - block:    # ======DEBIAN block======
+
+      - name: Install Nginx WebServer via apt
+        apt:
+          name: nginx
+          state: latest
+          update_cache: true
+        notify: Clear folder
+
+      - name: Pushing files
+        copy:
+          src: "{{ source_dir }}"
+          dest: "{{ destination }}"
+          mode: 0644
+        notify: Restart Nginx
+
+      - name: Starting Nginx
+        service:
+          name: nginx
+          state: started
+          enabled: true
+
+    when: ansible_os_family == "Debian"
+
+
+  handlers:
+  - name: Restart Nginx
+    service:
+      name: nginx
+      state: restarted
+
+  - name: Clear folder
+    file:
+      path: /var/www/html
+      state: absent
+
+...
+
