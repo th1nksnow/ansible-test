@@ -8,13 +8,9 @@ Playbook description:
 
   ==WebServer and WebPage setup==
 
-Tasks include Block for Debian Family OS:
-  - Install Nginx;
-  - Pushing files;
-  - Start Nginx.
-Handlers:
-  - Restart Nginx;
-  - Clear destination.
+Tasks include Block for Debian Family OS:  Install Nginx; Pushing files; Start Nginx.
+
+Handlers: Restart Nginx; Clear destination.
 
 - rolebook.yml
 
