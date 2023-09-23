@@ -1,0 +1,26 @@
+
+---
+
+- name: Reboot book
+  hosts: "{{ reboot_me }}"
+  become: true
+
+
+  tasks:
+
+  - name: Reboot task
+    shell: sleep 3 && reboot now
+    async: 1
+    poll: 0
+
+  - name: Wait till nodes grow up
+    become: false
+    wait_for:
+      host: "{{ reboot_me }}"
+      state: started
+      delay: 5
+      timeout: 40
+    delegate_to: 127.0.0.1
+
+...
+
