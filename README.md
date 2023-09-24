@@ -26,3 +26,8 @@ Added template and task for generating one more page.
 - varsbook.yml
 
   ==Enjoy variables==
+
+- rebootbook.yml
+
+  ==Reboot clients==
+  
