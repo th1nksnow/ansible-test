@@ -2,8 +2,6 @@
 ---
 # handlers file for nginx_up
 
-handlers:
-
 - name: Clear folder
   file:
     path: /var/www/html

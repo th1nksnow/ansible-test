@@ -4,7 +4,7 @@
 
 - name: Pushing files
   copy:
-    src: "{{ source_dir }}"
+    src: html
     dest: "{{ destination }}"
     mode: 0644
   notify: Restart Nginx

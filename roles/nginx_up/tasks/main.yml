@@ -9,7 +9,7 @@
         name: nginx
         state: latest
         update_cache: true
-        notify: Clear folder
+      notify: Clear folder
 
     - name: Starting Nginx
       service:

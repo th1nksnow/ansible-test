@@ -1,3 +1,4 @@
+
 ---
 # handlers file for deploy_web_nginx
 
@@ -10,4 +11,7 @@
   file:
     path: /var/www/html
     state: absent
-      
+
+...
+
+
