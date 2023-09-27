@@ -8,7 +8,7 @@
 
   roles:
 #   - deploy_web_nginx
-    - { role: deploy_web_nginx, ansible_system == Linux }
-    
+   - { role: deploy_web_nginx, ansible_system == Linux }
+
 ...
 

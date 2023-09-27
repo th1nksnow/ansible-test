@@ -1,0 +1,24 @@
+
+---
+# tasks file for nginx_up
+
+- block:    # ======DEBIAN block======
+
+    - name: Install Nginx WebServer via apt
+      apt:
+        name: nginx
+        state: latest
+        update_cache: true
+        notify: Clear folder
+
+    - name: Starting Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+  when: ansible_os_family == "Debian"
+
+...
+
+
