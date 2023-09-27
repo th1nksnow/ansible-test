@@ -1,0 +1,13 @@
+
+---
+# tasks file for content_delivery
+
+- name: Pushing files
+  copy:
+    src: "{{ source_dir }}"
+    dest: "{{ destination }}"
+    mode: 0644
+  notify: Restart Nginx
+
+...
+

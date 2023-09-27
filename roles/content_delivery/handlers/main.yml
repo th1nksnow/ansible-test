@@ -1,0 +1,12 @@
+
+---
+# handlers file for content_delivery
+
+handlers:
+  - name: Restart Nginx
+    service:
+      name: nginx
+      state: restarted
+
+...
+

@@ -1,0 +1,10 @@
+
+---
+# vars file for content_delivery
+
+vars:
+    source_dir: /home/th1nksnow/ansible-test/files/html
+    destination: /var/www/
+
+...
+

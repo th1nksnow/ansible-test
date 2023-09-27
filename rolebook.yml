@@ -3,12 +3,13 @@
 
 - name: Install Nginx Web Server and Upload WebPage
   hosts: slave2
+  any_errors_fatal: true
   become: true
 
-
   roles:
-#   - deploy_web_nginx
-   - { role: deploy_web_nginx, ansible_system == Linux }
+#    - deploy_web_nginx
+    - { role: nginx_up, ansible_system == Linux }
+    - content_delivery
 
 ...
 
